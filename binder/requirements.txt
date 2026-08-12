@@ -1,0 +1,9 @@
+# URDF parsing (used by the semantic_digital_twin URDF adapter and giskardpy)
+urdf_parser_py
+lxml
+jupyterlab~=4.0.0
+# Converts the semantic_digital_twin doc examples (*.md) into runnable notebooks,
+# as suggested at the end of the tutorial.
+jupytext
+git+https://github.com/yxzhan/jupyterlab-urdf.git@367986c4a51bcdbc4daac81dabbffd4283552fdc
+https://raw.githubusercontent.com/yxzhan/extension-examples/main/cell-toolbar/dist/jupyterlab_examples_cell_toolbar-0.1.4.tar.gz

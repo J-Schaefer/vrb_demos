@@ -13,18 +13,19 @@ Click the badge — everything runs in your browser, nothing to install.
 A URDF tells a robot **where** every link is. It does not tell the robot **what** any of them is.
 "Open the drawer" is not a question a URDF can answer.
 
-In 90 minutes you take a plain kitchen URDF and turn it into a world a robot can reason about:
+In 90 minutes you take a plain apartment URDF and turn it into a world a robot can reason about:
 
 0. **Setup** — launch the environment, select the `CRAM` kernel.
-1. **What URDF can and cannot tell a robot** — load the kitchen, look at its kinematic tree, and
-   watch a name-matching heuristic fail at finding the drawers.
+1. **What URDF can and cannot tell a robot** — load the apartment and watch two reasonable
+   heuristics both return 25 drawers, disagree about which 25, and both be wrong.
 2. **Saying what things are** — build a dresser out of typed semantic annotations
    (`Drawer`, `Handle`, `Slider`) and pull one of its drawers open.
 3. **Not annotating by hand** — let the `WorldReasoner` find the drawers itself, then make it
    explain, in English, why it thinks they are drawers.
-4. **Asking questions** — query the annotated kitchen with the Entity Query Language.
-5. **Teaching the reasoner** — the shipped rules find 14 of the kitchen's 15 drawers. Find the
-   one they miss, work out why, and write the Ripple-Down rule that fixes it.
+4. **Asking questions** — query the annotated apartment with the Entity Query Language.
+5. **Teaching the reasoner** — the shipped rules define a drawer as something with a handle, so
+   they find 19 of the apartment's 23. Find the four they miss, work out why, and write the
+   Ripple-Down rule that fixes it.
 
 Exercises check themselves as you go; worked answers are in `notebooks/solutions.ipynb`.
 

@@ -15,7 +15,7 @@ USER ${NB_USER}
 COPY --chown=${NB_USER}:users binder/requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
-ENV REPO_DIR=${HOME}/ijcai_2026_workshop
+ENV REPO_DIR=${HOME}/vrb-cable-demo
 RUN mkdir -p ${REPO_DIR}
 COPY --chown=${NB_USER}:users cognitive_robot_abstract_machine ${REPO_DIR}/cognitive_robot_abstract_machine
 RUN git config --global --add safe.directory ${REPO_DIR}/cognitive_robot_abstract_machine

@@ -5,9 +5,12 @@
 # (or any script) using it gets the full ROS environment regardless of how the
 # parent process was started.
 
-# Deliberately ignore an inherited REPO_DIR: container images export it and a
-# stale image would silently point this wrapper at an older checkout.
-REPO_DIR="$HOME/vrb-cable-demo"
+# Resolve the demo checkout from the authoritative REPO_DIR (baked into the
+# image via ENV) rather than $HOME, whose value depends on the runtime user
+# (docker-compose runs as root, BinderHub as the notebook user). Export it so
+# the notebook's setup cell sees the same path via os.environ["REPO_DIR"].
+REPO_DIR="${REPO_DIR:-/home/jovyan/vrb-cable-demo}"
+export REPO_DIR
 
 source "${ROS_PATH:-/opt/ros/jazzy}/setup.bash"
 if [ -f "${REPO_DIR}/ros2_ws/install/setup.bash" ]; then

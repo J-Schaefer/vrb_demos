@@ -38,6 +38,8 @@ RUN sudo apt-get update && \
     sudo rm -rf /var/lib/apt/lists/*
 
 COPY --chown=${NB_USER}:users binder/cram_python_wrapper.sh /home/jovyan/.local/bin/cram_python_wrapper.sh
+RUN chmod +x /home/jovyan/.local/bin/cram_python_wrapper.sh
+RUN mkdir -p /opt/conda/share/jupyter/kernels/cram
 COPY --chown=${NB_USER}:users binder/cram-kernel.json /opt/conda/share/jupyter/kernels/cram/kernel.json
 COPY --chown=${NB_USER}:users binder/start_rviz_web.sh /usr/local/bin/start_rviz_web.sh
 COPY --chown=${NB_USER}:users binder/novnc/index.html /usr/share/novnc/index.html

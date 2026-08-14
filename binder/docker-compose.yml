@@ -7,7 +7,7 @@ services:
       dockerfile: ./binder/Dockerfile
     user: root
     working_dir: /home/jovyan/vrb-cable-demo
-    command: jupyter lab --allow-root --NotebookApp.token='' --no-browser --ip=0.0.0.0 --ServerApp.default_url=/lab/tree/notebooks/daisy_cable_demo.ipynb
+    command: jupyter lab --allow-root --NotebookApp.token='' --no-browser --ip=0.0.0.0 --LabApp.default_url=/lab/tree/notebooks/daisy_cable_demo.ipynb
     ports:
       - 8888:8888
       - 6080:6080

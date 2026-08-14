@@ -10,6 +10,7 @@ services:
     command: jupyter lab --allow-root --NotebookApp.token='' --no-browser --ip=0.0.0.0
     ports:
       - 8888:8888
+      - 6080:6080
     volumes:
       - ../:/home/jovyan/work:rw
       - /usr/share/vulkan/icd.d/:/etc/vulkan/icd.d
@@ -20,10 +21,10 @@ services:
       - PRIVACY_CONSENT="YES"
       - OMNI_KIT_ACCEPT_EULA="YES"
       - OMNI_KIT_ALLOW_ROOT=1
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]

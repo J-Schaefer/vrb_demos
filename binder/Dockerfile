@@ -22,7 +22,7 @@ RUN git config --global --add safe.directory ${REPO_DIR}/cognitive_robot_abstrac
 
 RUN cd ${REPO_DIR}/cognitive_robot_abstract_machine && \
     ~/.local/bin/uv sync && \
-    .venv/bin/pip install nest_asyncio argcomplete usd-core
+    .venv/bin/pip install nest_asyncio argcomplete usd-core ipywidgets
 
 RUN sudo apt-get update && \
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends git-lfs && \
@@ -31,10 +31,23 @@ RUN sudo apt-get update && \
         bash ${REPO_DIR}/cognitive_robot_abstract_machine/.github/docker/setup_ros_workspace.sh && \
     sudo rm -rf /var/lib/apt/lists/*
 
+# Headless RViz-in-the-browser stack: Xvfb (software GL), x11vnc, noVNC.
+RUN sudo apt-get update && \
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        xvfb x11vnc novnc && \
+    sudo rm -rf /var/lib/apt/lists/*
+
 COPY --chown=${NB_USER}:users binder/cram_python_wrapper.sh /home/jovyan/.local/bin/cram_python_wrapper.sh
 COPY --chown=${NB_USER}:users binder/cram-kernel.json /opt/conda/share/jupyter/kernels/cram/kernel.json
+COPY --chown=${NB_USER}:users binder/start_rviz_web.sh /usr/local/bin/start_rviz_web.sh
+COPY --chown=${NB_USER}:users binder/novnc/index.html /usr/share/novnc/index.html
 COPY --chown=${NB_USER}:users binder ${REPO_DIR}/binder
 COPY --chown=${NB_USER}:users notebooks ${REPO_DIR}/notebooks
+
+# Register the RViz web proxy route with jupyter-server-proxy.
+COPY --chown=${NB_USER}:users binder/jupyter_server_config.py /tmp/jupyter_server_config_rviz.py
+RUN sudo sh -c 'cat /tmp/jupyter_server_config_rviz.py >> /etc/jupyter/jupyter_server_config.py' && \
+    rm /tmp/jupyter_server_config_rviz.py
 
 RUN git config --global --add safe.directory ${REPO_DIR}
 

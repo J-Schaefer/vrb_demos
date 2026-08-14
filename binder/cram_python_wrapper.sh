@@ -7,7 +7,7 @@
 
 # Deliberately ignore an inherited REPO_DIR: container images export it and a
 # stale image would silently point this wrapper at an older checkout.
-REPO_DIR="$HOME/ijcai_2026_workshop"
+REPO_DIR="$HOME/vrb-cable-demo"
 
 source "${ROS_PATH:-/opt/ros/jazzy}/setup.bash"
 if [ -f "${REPO_DIR}/ros2_ws/install/setup.bash" ]; then

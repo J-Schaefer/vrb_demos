@@ -22,7 +22,7 @@ RUN git config --global --add safe.directory ${REPO_DIR}/cognitive_robot_abstrac
 
 RUN cd ${REPO_DIR}/cognitive_robot_abstract_machine && \
     ~/.local/bin/uv sync && \
-    .venv/bin/pip install nest_asyncio argcomplete usd-core ipywidgets
+    .venv/bin/pip install nest_asyncio argcomplete usd-core ipywidgets sidecar
 
 RUN sudo apt-get update && \
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends git-lfs && \

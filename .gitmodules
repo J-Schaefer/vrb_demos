@@ -1,4 +1,4 @@
 [submodule "cognitive_robot_abstract_machine"]
 	path = cognitive_robot_abstract_machine
-	url = git@github.com:j-schaefer/cognitive_robot_abstract_machine
+	url = https://github.com/j-schaefer/cognitive_robot_abstract_machine
 	branch = vrb/cable-demo

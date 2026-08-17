@@ -47,7 +47,7 @@ Visualization Manager:
       Reference Frame: <Fixed Frame>
       Value: true
     - Class: rviz_default_plugins/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: true
@@ -117,7 +117,7 @@ Window Geometry:
   Displays:
     collapsed: false
   Height: 846
-  Hide Left Dock: false
+  Hide Left Dock: true
   Hide Right Dock: false
   Selection:
     collapsed: false

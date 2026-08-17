@@ -13,13 +13,6 @@ VNC_PORT="${RViz_VNC_PORT:-5900}"
 WEB_PORT="${RViz_WEB_PORT:-6080}"
 RViz_CONFIG="${RViz_CONFIG:-${REPO_DIR}/binder/rviz.rviz}"
 
-# Idempotency guard: only one instance of this pipeline per container.
-LOCKFILE="${TMPDIR:-/tmp}/rviz_web.lock"
-if [ -e "${LOCKFILE}" ]; then
-    exit 0
-fi
-touch "${LOCKFILE}"
-
 # Match the ROS middleware settings used by the CRAM kernel so RViz can
 # discover the nodes started by the demo.
 export ROS_DOMAIN_ID="${ROS_DOMAIN_ID:-0}"
@@ -41,6 +34,11 @@ Xvfb "${RViz_DISPLAY}" -screen 0 "${RViz_GEOMETRY}" \
 sleep 2
 
 # 2. RViz showing the daisy cable demo world.
+if [ ! -f "${RViz_CONFIG}" ]; then
+  echo "start_rviz_web: WARNING — config not found at '${RViz_CONFIG}'; rviz2 will fall back to its package default (Displays sidebar visible, TF enabled)." >&2
+else
+  echo "start_rviz_web: loading RViz config '${RViz_CONFIG}'"
+fi
 rviz2 -d "${RViz_CONFIG}" &
 
 # 3. Expose the display over VNC.

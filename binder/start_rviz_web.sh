@@ -11,7 +11,7 @@ RViz_DISPLAY="${RViz_DISPLAY:-:99}"
 RViz_GEOMETRY="${RViz_GEOMETRY:-1280x800x24}"
 VNC_PORT="${RViz_VNC_PORT:-5900}"
 WEB_PORT="${RViz_WEB_PORT:-6080}"
-RViz_CONFIG="${RViz_CONFIG:-${REPO_DIR}/binder/rviz.rviz}"
+RViz_CONFIG="${RViz_CONFIG:-${REPO_DIR}/binder/config.rviz}"
 
 # Match the ROS middleware settings used by the CRAM kernel so RViz can
 # discover the nodes started by the demo.

@@ -9,10 +9,11 @@ Panels:
         - /Semantic World1
         - /TF1
       Splitter Ratio: 0.5
-    Tree Height: 542
+    Tree Height: 118
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
+    Expanded: ~
     Name: Tool Properties
     Splitter Ratio: 0.5886790156364441
   - Class: rviz_common/Views
@@ -48,6 +49,8 @@ Visualization Manager:
       Value: true
     - Class: rviz_default_plugins/TF
       Enabled: false
+      Filter (blacklist): ""
+      Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
         All Enabled: true
@@ -59,12 +62,47 @@ Visualization Manager:
       Tree:
         {}
       Update Interval: 0
-      Value: true
+      Value: false
     - Class: rviz_default_plugins/MarkerArray
       Enabled: true
       Name: Semantic World
       Namespaces:
-        {}
+        cable: true
+        cable_hanger_2.stl: true
+        daisy/left_arm_mounting_plate: true
+        daisy/left_base_link_inertia: true
+        daisy/left_forearm_link: true
+        daisy/left_gripper_base_link: true
+        daisy/left_gripper_left_finger_link: true
+        daisy/left_gripper_left_finger_tip_link: true
+        daisy/left_gripper_mounting_plate: true
+        daisy/left_gripper_right_finger_link: true
+        daisy/left_gripper_right_finger_tip_link: true
+        daisy/left_gripper_side_cylinder_link: true
+        daisy/left_gripper_wrist_collision_cylinder_link: true
+        daisy/left_shoulder_link: true
+        daisy/left_upper_arm_link: true
+        daisy/left_wrist_1_link: true
+        daisy/left_wrist_2_link: true
+        daisy/left_wrist_3_link: true
+        daisy/right_arm_mounting_plate: true
+        daisy/right_base_link_inertia: true
+        daisy/right_forearm_link: true
+        daisy/right_gripper_base_link: true
+        daisy/right_gripper_left_finger_link: true
+        daisy/right_gripper_left_finger_tip_link: true
+        daisy/right_gripper_mounting_plate: true
+        daisy/right_gripper_right_finger_link: true
+        daisy/right_gripper_right_finger_tip_link: true
+        daisy/right_gripper_side_cylinder_link: true
+        daisy/right_gripper_wrist_collision_cylinder_link: true
+        daisy/right_shoulder_link: true
+        daisy/right_upper_arm_link: true
+        daisy/right_wrist_1_link: true
+        daisy/right_wrist_2_link: true
+        daisy/right_wrist_3_link: true
+        daisy/table: true
+        item_profile_8_40x40_720.stl: true
       Topic:
         Depth: 100
         Durability Policy: Transient Local
@@ -93,40 +131,41 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 3
+      Distance: 1.5831955671310425
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0.8
+        X: -0.4334040880203247
+        Y: -0.019250012934207916
+        Z: 0.854404091835022
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5753983855247498
+      Pitch: 0.40539851784706116
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.7803988456726074
+      Yaw: 1.2753993272781372
     Saved: ~
 Window Geometry:
   Displays:
-    collapsed: false
+    collapsed: true
   Height: 846
   Hide Left Dock: true
-  Hide Right Dock: false
+  Hide Right Dock: true
+  QMainWindow State: 000000ff00000000fd000000010000000000000439000002f3fc0200000005fb000000100044006900730070006c006100790073000000003e00000101000000cb00fffffffb0000001200530065006c0065006300740069006f006e00000001450000007d0000005d00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007300000001c80000007d0000005d00fffffffb0000000a00560069006500770073000000024b000000a7000000a500fffffffb0000000800540069006d006500000002f8000000390000003900ffffff000004b0000002f300000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
-    collapsed: false
+    collapsed: true
   Time:
-    collapsed: false
+    collapsed: true
   Tool Properties:
-    collapsed: false
+    collapsed: true
   Views:
-    collapsed: false
+    collapsed: true
   Width: 1200
   X: 0
   Y: 0
